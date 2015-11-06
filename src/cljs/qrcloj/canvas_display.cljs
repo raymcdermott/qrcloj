@@ -6,12 +6,12 @@
 (defn canvas [canvas-id]
   (.-canvas (context canvas-id)))
 
-(defn full-screen [canvas-id]
-  (set-size canvas-id (.-innerWidth js/window) (.-innerHeight js/window)))
-
 (defn set-size [canvas-id x y]
   (set! (.-width (canvas canvas-id)) x)
   (set! (.-height (canvas canvas-id)) y))
+
+(defn full-screen [canvas-id]
+  (set-size canvas-id (.-innerWidth js/window) (.-innerHeight js/window)))
 
 (defn min-dim [canvas]
   (min (.-width canvas) (.-height canvas)))

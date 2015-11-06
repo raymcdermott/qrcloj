@@ -1,9 +1,31 @@
 (ns qrcloj.symbol
   (:require [qrcloj.version :as version]
             [qrcloj.masking :as masking]
-            [qrcloj.format :as format])
-  (:use [clojure.math.combinatorics :only [selections]]
-        [qrcloj.utils :only [dec-to-bin]]))
+            [qrcloj.format :as format]
+            [qrcloj.utils :refer [dec-to-bin]]))
+
+;; imported from clojure.math.combinatorics
+(defn cartesian-product [& seqs]
+  (let [v-original-seqs (vec seqs)
+        step
+        (fn step [v-seqs]
+          (let [increment
+                (fn [v-seqs]
+                  (loop [i (dec (count v-seqs)), v-seqs v-seqs]
+                    (if (= i -1) nil
+                      (if-let [rst (next (v-seqs i))]
+                        (assoc v-seqs i rst)
+                        (recur (dec i) (assoc v-seqs i (v-original-seqs i)))))))]
+            (when v-seqs
+              (cons (map first v-seqs)
+                    (lazy-seq (step (increment v-seqs)))))))]
+    (when (every? seq seqs)
+      (lazy-seq (step v-original-seqs)))))
+
+(defn selections [items n]
+  (apply cartesian-product  (take n  (repeat items))))
+
+;;
 
 (defn blank [version ecl]
   {:version version :ecl ecl :dim (version/dim version) :grid {}})

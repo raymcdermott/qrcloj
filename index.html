@@ -8,9 +8,9 @@
         make_symbol('canvas', $('input[name=ecl]:checked').val(), document.getElementById('to-encode').value);
       }
       function onload () {
-        set_size('mask', 500, 500);
+        // set_size('mask', 500, 500);
         set_size('canvas', 500, 500);
-        encodeIt();
+        // encodeIt();
       }
     </script>
     <input type="radio" name="ecl" value="L" onchange="encodeIt()" checked>L<br>
@@ -24,6 +24,6 @@
     <br />
     <canvas style="margin: 30px" id="canvas"></canvas>
 
-    <canvas id="mask"></canvas>
+    <!-- <canvas id="mask"></canvas> -->
   </body>
 </html>

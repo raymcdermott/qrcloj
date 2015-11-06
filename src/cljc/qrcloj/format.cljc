@@ -12,7 +12,7 @@
 (def mask-indicator (partial dec-to-bin 3))
 
 (def generator [1 0 1 0 0 1 1 0 1 1 1])
-(def mask [1 0 1 0 1 0 0 0 0 0 1 0 0 1 0])
+(def mask* [1 0 1 0 1 0 0 0 0 0 1 0 0 1 0])
 
 
 (defn indicator [ecl mask-idx]
@@ -20,10 +20,10 @@
     (reverse (map bit-xor
       (concat data
         (poly-rem data generator))
-      mask))))
+      mask*))))
 
 
-(defn vert-modules [dim] (concat 
+(defn vert-modules [dim] (concat
   [[8 0] [8 1] [8 2] [8 3] [8 4] [8 5] [8 7] [8 8]]
   (for [y (range (- dim 7) dim)] [8 y])))
 
