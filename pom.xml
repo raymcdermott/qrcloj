@@ -14,11 +14,11 @@
     </license>
   </licenses>
   <scm>
-    <connection>scm:git:git://github.com/nherzing/qrcloj.git</connection>
-    <developerConnection>scm:git:ssh://git@github.com/nherzing/qrcloj.git</developerConnection>
-    <tag>379d77f3639b17a6e53475ec2a3c7c8d97958fc6
+    <connection>scm:git:git://github.com/razum2um/qrcloj.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/razum2um/qrcloj.git</developerConnection>
+    <tag>96a7edf56ae0be78b76589636f46744c3849efcb
 </tag>
-    <url>https://github.com/nherzing/qrcloj</url>
+    <url>https://github.com/razum2um/qrcloj</url>
   </scm>
   <build>
     <sourceDirectory>src/cljc</sourceDirectory>
@@ -49,6 +49,7 @@
             </goals>
             <configuration>
               <sources>
+                <source>src/clj</source>
                 <source>src/cljs</source>
               </sources>
             </configuration>
@@ -88,7 +89,7 @@
     <dependency>
       <groupId>org.clojure</groupId>
       <artifactId>clojurescript</artifactId>
-      <version>1.7.145</version>
+      <version>1.7.170</version>
     </dependency>
   </dependencies>
 </project>
